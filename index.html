@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lista de tarefas simples feita com HTML, CSS e JavaScript puro.">
+  <title>Minhas Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 class="app__title">Minhas Tarefas</h1>
+      <p class="app__subtitle" id="remaining-counter" aria-live="polite"></p>
+    </header>
+
+    <section class="card" aria-label="Adicionar tarefa">
+      <form class="task-form" id="task-form" novalidate>
+        <label class="visually-hidden" for="task-input">Nova tarefa</label>
+        <input class="input" type="text" id="task-input" placeholder="O que você precisa fazer?" maxlength="120" autocomplete="off">
+        <button class="btn btn--primary" type="submit">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          Adicionar
+        </button>
+      </form>
+      <p class="form-error" id="form-error" role="alert" hidden></p>
+    </section>
+
+    <section class="card" aria-label="Lista de tarefas">
+      <div class="toolbar">
+        <div class="search">
+          <svg class="icon search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <label class="visually-hidden" for="search-input">Pesquisar tarefas</label>
+          <input class="input input--search" type="search" id="search-input" placeholder="Pesquisar tarefas" autocomplete="off">
+        </div>
+
+        <div class="filters" role="group" aria-label="Filtrar tarefas">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Todas</button>
+          <button class="filter" type="button" data-filter="pending" aria-pressed="false">Pendentes</button>
+          <button class="filter" type="button" data-filter="completed" aria-pressed="false">Concluídas</button>
+        </div>
+      </div>
+
+      <ul class="task-list" id="task-list"></ul>
+      <p class="empty" id="empty-message" hidden></p>
+
+      <footer class="card__footer">
+        <button class="btn btn--ghost" type="button" id="clear-completed">Limpar concluídas</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
